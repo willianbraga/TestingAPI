@@ -1,0 +1,95 @@
+﻿@model ClienteModel
+
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@{
+    ClienteModel dados = new ClienteModel();
+    dados.Id = Convert.ToInt32(ViewBag.Registro.Id);
+    dados.Nome = ViewBag.Registro.Nome.ToString();
+    dados.DataCadastro = ViewBag.Registro.DataCadastro.ToString();
+    dados.Cpf_Cnpj = ViewBag.Registro.Cpf_Cnpj.ToString();
+    dados.DataNascimento = ViewBag.Registro.DataNascimento.ToString();
+    dados.Tipo = ViewBag.Registro.Tipo.ToString();
+    dados.Telefone = ViewBag.Registro.Telefone.ToString();
+    dados.Email = ViewBag.Registro.Email.ToString();
+    dados.Cep = ViewBag.Registro.Cep.ToString();
+    dados.Logradouro = ViewBag.Registro.Logradouro.ToString();
+    dados.Numero = ViewBag.Registro.Numero.ToString();
+    dados.Bairro = ViewBag.Registro.Bairro.ToString();
+    dados.Complemento = ViewBag.Registro.Complemento.ToString();
+    dados.Cidade = ViewBag.Registro.Cidade.ToString();
+    dados.Uf = ViewBag.Registro.Uf.ToString();
+
+}
+
+<form asp-controller="Home" asp-action="Edit">
+    <input asp-for="Id" class="form-control" value="@dados.Id" type="hidden"/>
+    <div class="form-group;">
+        <label for="Nome e Sobrenome">Nome</label>
+        <input class="form-control" asp-for="Nome" aria-describedby="ajudanome" placeholder="Nome Completo" value="@dados.Nome">
+        <small id="ajudanome" class="form-text text-muted">Ex. João Pedro Figueiredo</small>
+    </div>
+    <div class="form-group;">
+        <label>Data do Cadastro</label>
+        <input class="form-control" asp-for="DataCadastro" aria-describedby="ajudacadas" placeholder="DD/MM/YYYY" value="@dados.DataCadastro">
+        <small id="ajudanome" class="form-text text-muted">Ex. @DateTime.Now.ToString("dd/MM/yyyy")</small>
+    </div>
+    <div class="form-group;">
+        <label>CPF/CNPJ</label>
+        <input class="form-control" asp-for="Cpf_Cnpj" aria-describedby="ajudacpf" placeholder="DD/MM/YYYY" value="@dados.Cpf_Cnpj">
+        <small id="ajudacpf" class="form-text text-muted">Ex. xxx.xxx.xxx.xx ou xx.xxx.xxx/xxxx-xx</small>
+    </div>
+    <div class="form-group;">
+        <label>Data de Nascimento</label>
+        <input class="form-control" asp-for="DataNascimento" aria-describedby="ajudacadas" placeholder="DD/MM/YYYY" value="@dados.DataNascimento">
+        <small id="ajudanome" class="form-text text-muted">Ex. @DateTime.Now.ToString("dd/MM/yyyy")</small>
+    </div>
+    <div class="form-group;">
+        <label>Tipo de Cadastro</label>
+        <input class="form-control" asp-for="Tipo" value="@dados.Tipo">
+
+    </div>
+    <div class="form-group;">
+        <label>Telefone</label>
+        <input class="form-control" asp-for="Telefone" placeholder="(xx)xxxx-xxxx"value="@dados.Telefone">
+    </div>
+    <div class="form-group;">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" asp-for="Email" aria-describedby="ajudaemail" placeholder="seuemail@seuemail.com" value="@dados.Email">
+        <small id="ajudaemail" class="form-text text-muted">Ex. João.Pedro@Figueiredo.com</small>
+    </div>
+    <div class="form-group;">
+        <label>CEP</label>
+        <input class="form-control" asp-for="Cep" placeholder="00000-000" value="@dados.Cep">
+    </div>
+    <div class="form-group;">
+        <label>Logradouro</label>
+        <input class="form-control" asp-for="Logradouro" placeholder="Rua....."value="@dados.Logradouro">
+    </div>
+    <div class="form-group;">
+        <label>Numero</label>
+        <input class="form-control" asp-for="Numero" placeholder="000"value="@dados.Numero">
+    </div>
+    <div class="form-group;">
+        <label>Bairro</label>
+        <input class="form-control" asp-for="Bairro" placeholder="Cecap"value="@dados.Bairro">
+    </div>
+    <div class="form-group;">
+        <label>Complemento</label>
+        <input class="form-control" asp-for="Complemento" placeholder="casa 1"value="@dados.Complemento">
+    </div>
+    <div class="form-group;">
+        <label>Cidade</label>
+        <input class="form-control" asp-for="Cidade" placeholder="São Paulo"value="@dados.Cidade">
+    </div>
+    <div class="form-group;">
+        <label>UF</label>
+        <input class="form-control" asp-for="Uf" placeholder="SP"value="@dados.Uf">
+    </div>
+    <hr />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

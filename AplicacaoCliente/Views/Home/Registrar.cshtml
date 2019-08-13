@@ -1,0 +1,74 @@
+﻿@model ClienteModel
+
+@{
+    ViewData["Title"] = "Registrar Cliente";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-controller="Home" asp-action="Registrar">
+    <div class="form-group;">
+        <label for="Nome e Sobrenome">Nome</label>
+        <input class="form-control" asp-for="Nome" aria-describedby="ajudanome" placeholder="Nome Completo">
+        <small id="ajudanome" class="form-text text-muted">Ex. João Pedro Figueiredo</small>
+    </div>
+    <div class="form-group;">
+        <label>Data do Cadastro</label>
+        <input class="form-control" asp-for="DataCadastro" aria-describedby="ajudacadas" placeholder="DD/MM/YYYY">
+        <small id="ajudanome" class="form-text text-muted">Ex. @DateTime.Now.ToString("dd/MM/yyyy")</small>
+    </div>
+    <div class="form-group;">
+        <label>CPF/CNPJ</label>
+        <input class="form-control" asp-for="Cpf_Cnpj" aria-describedby="ajudacpf" placeholder="DD/MM/YYYY">
+        <small id="ajudacpf" class="form-text text-muted">Ex. xxx.xxx.xxx.xx ou xx.xxx.xxx/xxxx-xx</small>
+    </div>
+    <div class="form-group;">
+        <label>Data de Nascimento</label>
+        <input class="form-control" asp-for="DataNascimento" aria-describedby="ajudacadas" placeholder="DD/MM/YYYY">
+        <small id="ajudanome" class="form-text text-muted">Ex. @DateTime.Now.ToString("dd/MM/yyyy")</small>
+    </div>
+    <div class="form-group;">
+        <label>Tipo de Cadastro</label>
+        <p>Fisica @Html.RadioButtonFor(model => model.Tipo, "F")</p>
+        <p>Juridica @Html.RadioButtonFor(model => model.Tipo, "J")</p>
+    </div>
+    <div class="form-group;">
+        <label>Telefone</label>
+        <input class="form-control" asp-for="Telefone" placeholder="(xx)xxxx-xxxx">
+    </div>
+    <div class="form-group;">
+        <label for="Email">Email</label>
+        <input type="email" class="form-control" asp-for="Email" aria-describedby="ajudaemail" placeholder="seuemail@seuemail.com">
+        <small id="ajudaemail" class="form-text text-muted">Ex. João.Pedro@Figueiredo.com</small>
+    </div>
+    <div class="form-group;">
+        <label>CEP</label>
+        <input class="form-control" asp-for="Cep" placeholder="00000-000">
+    </div>
+    <div class="form-group;">
+        <label>Logradouro</label>
+        <input class="form-control" asp-for="Logradouro" placeholder="Rua.....">
+    </div>
+    <div class="form-group;">
+        <label>Numero</label>
+        <input class="form-control" asp-for="Numero" placeholder="000">
+    </div>
+    <div class="form-group;">
+        <label>Bairro</label>
+        <input class="form-control" asp-for="Bairro" placeholder="Cecap">
+    </div>
+    <div class="form-group;">
+        <label>Complemento</label>
+        <input class="form-control" asp-for="Complemento" placeholder="casa 1">
+    </div>
+    <div class="form-group;">
+        <label>Cidade</label>
+        <input class="form-control" asp-for="Cidade" placeholder="São Paulo">
+    </div>
+    <div class="form-group;">
+        <label>UF</label>
+        <input class="form-control" asp-for="Uf" placeholder="SP">
+    </div>
+    <hr/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

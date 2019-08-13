@@ -1,0 +1,53 @@
+﻿@model  ClienteModel
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h2>@ViewData["Title"]</h2>
+    
+<p>
+    <a class="btn btn-link" asp-action="Registrar">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Nome
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (List<ClienteModel>)ViewBag.ListaClientes)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@*opção pode ser usada em evento onclick
+<script>
+    function registrar() {
+        window.location.href = window.location.origin + "/Home/Registrar"
+    }
+</script>*@
